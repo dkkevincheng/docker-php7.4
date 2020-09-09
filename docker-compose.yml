@@ -1,0 +1,42 @@
+version: "3"
+networks:
+  lnmp-net:
+    driver: bridge
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.4
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    restart: always
+    networks:
+      - lnmp-net
+  nginx:
+    container_name: nginx
+    image: nginx:1.16.1
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - mariadb
+      - redis
+      - php
+    restart: always
+    networks:
+      - lnmp-net
+  php:
+    container_name: php
+    image: hwphp:7.4-fpm
+    restart: always
+    networks:
+      - lnmp-net
+  redis:
+    container_name: redis
+    image: redis:5.0.7
+    ports:
+      - 6380:6379
+    restart: always
+    networks:
+      - lnmp-net
