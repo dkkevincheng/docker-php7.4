@@ -12,7 +12,6 @@ services:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./mariadb/db:/var/lib/mysql
-      - ./mariadb/conf.d:/etc/mysql/mariadb.conf.d
       - ./mariadb/logs:/var/log/mysql
     restart: always
     networks:
