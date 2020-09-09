@@ -1,7 +1,7 @@
 <?php
 $dbhost = 'mariadb'; //数据库服务器,容器名称
-$dbport = 3307; //端口
-$dbname = 'hello'; //数据库名称
+$dbport = 3306; //端口
+$dbname = 'test'; //数据库名称
 $dbuser = 'root'; //用户名
 $dbpass = '123456'; //密码
 
