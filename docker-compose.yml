@@ -39,6 +39,7 @@ services:
     container_name: php
     image: hwphp:7.4-fpm
     volumes:
+      - ./www:/usr/share/nginx/html
       - ./php/php.ini:/usr/local/etc/php/php.ini
       - ./php/logs:/usr/local/var/log
       - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
