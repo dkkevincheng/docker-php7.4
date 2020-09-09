@@ -11,9 +11,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
-      - mariadb/db:/var/lib/mysql
-      - mariadb/conf.d:/etc/mysql/mariadb.conf.d
-      - mariadb/logs:/var/log/mysql
+      - ./mariadb/db:/var/lib/mysql
+      - ./mariadb/conf.d:/etc/mysql/mariadb.conf.d
+      - ./mariadb/logs:/var/log/mysql
     restart: always
     networks:
       - lnmp-net
@@ -24,10 +24,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - www:/usr/share/nginx/html
-      - nginx/nginx.conf:/etc/nginx/nginx.conf
-      - nginx/conf.d:/etc/nginx/conf.d
-      - nginx/logs:/var/log/nginx
+      - ./www:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
     depends_on:
       - mariadb
       - redis
@@ -39,9 +39,9 @@ services:
     container_name: php
     image: hwphp:7.4-fpm
     volumes:
-      - php/php.ini:/usr/local/etc/php/php.ini
-      - php/logs:/usr/local/var/log
-      - php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./php/logs:/usr/local/var/log
+      - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
     restart: always
     networks:
       - lnmp-net
@@ -51,8 +51,8 @@ services:
     ports:
       - 6380:6379
     volumes:
-      - redis/db:/var/lib/redis
-      - redis/logs:/var/log/redis
+      - ./redis/db:/var/lib/redis
+      - ./redis/logs:/var/log/redis
     restart: always
     networks:
       - lnmp-net
