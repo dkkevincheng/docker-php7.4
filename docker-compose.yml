@@ -21,7 +21,7 @@ services:
     container_name: nginx
     image: nginx:1.16.1
     ports:
-      - 80:80
+      - 8080:80
       - 443:443
     volumes:
       - ./www:/usr/share/nginx/html
