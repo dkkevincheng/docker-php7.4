@@ -36,7 +36,7 @@ services:
       - lnmp-net
   php:
     container_name: php
-    image: ysphp:7.4-fpm
+    image: registry.cn-qingdao.aliyuncs.com/bartoncheng/ysphp:1.0-release
     volumes:
       - ./www:/usr/share/nginx/html
       - ./php/php.ini:/usr/local/etc/php/php.ini
