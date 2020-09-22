@@ -37,7 +37,7 @@ services:
       - lnmp-net
   php:
     container_name: php
-    image: hwphp:7.4-fpm
+    image: ysphp:7.4-fpm
     volumes:
       - ./www:/usr/share/nginx/html
       - ./php/php.ini:/usr/local/etc/php/php.ini
