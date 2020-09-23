@@ -20,6 +20,7 @@ services:
   nginx:
     container_name: nginx
     image: nginx:1.16.1
+    user: www-data
     ports:
       - 8080:80
     volumes:
@@ -27,7 +28,6 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs:/var/log/nginx
-    command: chown -R www-data:www-data /usr/share/nginx/html
     depends_on:
       - mariadb
       - redis
