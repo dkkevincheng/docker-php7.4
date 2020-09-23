@@ -20,6 +20,7 @@ services:
   nginx:
     container_name: nginx
     image: nginx:1.16.1
+    user: www-data
     ports:
       - 8080:80
     volumes:
